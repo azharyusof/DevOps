@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DotNetCoreSQL.Models.StaffInfo>
+
+<table id="BusinessDiv" class="table table-hover table-wrapper table-striped table-responsive-lg text-left" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th class="text-sm font-weight-bold col-1" style="font-size: 12px;">No.</th>
+            <th class="text-sm font-weight-bold" style="font-size: 12px;">
+                @Html.DisplayNameFor(model => model.StaffName)
+            </th>
+            <th class="text-sm font-weight-bold" style="font-size: 12px;">
+                @Html.DisplayNameFor(model => model.StaffNo)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1; }
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.StaffName">
+                <td class="text-sm text-center" style="font-size: 12px;">
+                    @i
+                </td>
+                <td scope="row" class="text-sm" style="font-size: 12px;">
+                    @Html.DisplayFor(modelItem => item.StaffName)
+                </td>
+                <td scope="row" class="text-sm" style="font-size: 12px;">
+                    @Html.DisplayFor(modelItem => item.StaffNo)
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
